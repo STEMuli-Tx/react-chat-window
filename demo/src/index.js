@@ -8,7 +8,7 @@ import Footer from './Footer';
 import monsterImgUrl from './../assets/monster.png';
 import Highlight from 'react-highlight.js';
 import './../assets/styles';
-import naruto from '../../src/assets/naruto.png';
+//import naruto from 'https://stemuli.blob.core.windows.net/stemuli/avatar-placeholder.png';
 
 class Demo extends Component {
 	constructor() {
@@ -77,7 +77,7 @@ class Demo extends Component {
 						teamName: 'react-chat-window',
 						imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
 					}}
-					avatar={naruto}
+					avatar={'https://stemuli.blob.core.windows.net/stemuli/avatar-placeholder.png'}
 					onMessageWasSent={this._onMessageWasSent.bind(this)}
 					onFilesSelected={this._onFilesSelected.bind(this)}
 					messageList={this.state.messageList}
