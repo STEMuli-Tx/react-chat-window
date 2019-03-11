@@ -1,6 +1,6 @@
 {
 	"name": "stemuli-chat-window",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "React chat window built off of react-chat-window made by kingofthestack",
 	"main": "lib/index.js",
 	"module": "es/index.js",

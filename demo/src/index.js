@@ -77,7 +77,9 @@ class Demo extends Component {
 						teamName: 'react-chat-window',
 						imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
 					}}
-					avatar={'https://stemuli.blob.core.windows.net/stemuli/avatar-placeholder.png'}
+					avatar={
+						'https://vignette.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png/revision/latest?cb=20170716092103'
+					}
 					onMessageWasSent={this._onMessageWasSent.bind(this)}
 					onFilesSelected={this._onFilesSelected.bind(this)}
 					messageList={this.state.messageList}
