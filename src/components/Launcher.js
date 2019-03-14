@@ -4,13 +4,14 @@ import ChatWindow from './ChatWindow';
 import launcherIcon from './../assets/logo-no-bg.svg';
 import incomingMessageSound from './../assets/sounds/notification.mp3';
 import launcherIconActive from './../assets/close-icon.png';
-
+import Avatar from '@material-ui/core/Avatar';
 class Launcher extends Component {
 	constructor() {
 		super();
 		this.state = {
 			launcherIcon,
-			isOpen: false
+			isOpen: false,
+			groupLabel: ''
 		};
 	}
 
@@ -40,8 +41,27 @@ class Launcher extends Component {
 			});
 		}
 	}
+	componentDidMount() {
+		this.createGroupLabel();
+	}
+	createGroupLabel = () => {
+		const { groupName } = this.props;
+		const splitName = groupName.split(' ');
+
+		let label;
+		if (splitName.length > 1) {
+			label = splitName.map((item) => {
+				return item[0];
+			});
+		} else {
+			let name = splitName.toString().toUpperCase();
+			label = [ name[0], name[1], name[2], name[3] ];
+		}
+		this.setState({ groupLabel: label });
+	};
 	render() {
-		const { avatar } = this.props;
+		const { avatar, isGroup = false, groupColor, groupName } = this.props;
+		const { groupLabel } = this.state;
 		const isOpen = this.props.hasOwnProperty('isOpen') ? this.props.isOpen : this.state.isOpen;
 		const classList = [ 'sc-launcher', isOpen ? 'opened' : '' ];
 		return (
@@ -49,9 +69,25 @@ class Launcher extends Component {
 				<div className={classList.join(' ')} onClick={this.handleClick.bind(this)}>
 					<MessageCount count={this.props.newMessagesCount} isOpen={isOpen} />
 					<img className={'sc-open-icon'} src={launcherIconActive} />
-					<img className={'sc-closed-icon'} src={avatar} />
+					{!isGroup ? (
+						<img className={'sc-closed-icon'} src={avatar} />
+					) : (
+						<Avatar style={{ backgroundColor: groupColor }} className={'sc-closed-icon'}>
+							{groupLabel}
+						</Avatar>
+					)}
 				</div>
 				<ChatWindow
+					isGroup={isGroup}
+					groupName={groupName}
+					groupAvatar={
+						isGroup && (
+							<Avatar style={{ backgroundColor: groupColor }} className={'sc-closed-icon'}>
+								{groupLabel}
+							</Avatar>
+						)
+					}
+					groupList={this.props.groupList}
 					messageList={this.props.messageList}
 					onUserInputSubmit={this.props.onMessageWasSent}
 					onFilesSelected={this.props.onFilesSelected}
@@ -80,6 +116,9 @@ Launcher.propTypes = {
 	handleClick: PropTypes.func,
 	messageList: PropTypes.arrayOf(PropTypes.object),
 	mute: PropTypes.bool,
+	groupColor: PropTypes.string,
+	isGroup: PropTypes.bool,
+	groupLabel: PropTypes.string,
 	avatar: PropTypes.string.isRequired,
 	showEmoji: PropTypes.bool
 };

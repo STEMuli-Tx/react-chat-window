@@ -6,7 +6,6 @@ import TestArea from './TestArea';
 import Header from './Header';
 import Footer from './Footer';
 import monsterImgUrl from './../assets/monster.png';
-import Highlight from 'react-highlight.js';
 import './../assets/styles';
 //import naruto from 'https://stemuli.blob.core.windows.net/stemuli/avatar-placeholder.png';
 
@@ -80,6 +79,20 @@ class Demo extends Component {
 					avatar={
 						'https://vignette.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png/revision/latest?cb=20170716092103'
 					}
+					isGroup={true}
+					groupName={'Hidden Leaf'}
+					groupColor={'#4286f4'}
+					groupList={[
+						{
+							name: 'Naruto Uzumaki',
+							avatar:
+								'https://m.media-amazon.com/images/M/MV5BNDk2MDhhY2UtYTZhMS00YTc3LThmODEtNTExNDU0YTZiZTg2XkEyXkFqcGdeQXVyMjc2Nzg5OTQ@._V1_.jpg'
+						},
+						{
+							name: 'Sasuke Uchiha',
+							avatar: 'https://i.ytimg.com/vi/19s0vIeJthA/maxresdefault.jpg'
+						}
+					]}
 					onMessageWasSent={this._onMessageWasSent.bind(this)}
 					onFilesSelected={this._onFilesSelected.bind(this)}
 					messageList={this.state.messageList}

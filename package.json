@@ -1,6 +1,6 @@
 {
 	"name": "stemuli-chat-window",
-	"version": "1.0.6",
+	"version": "1.0.8",
 	"description": "React chat window built off of react-chat-window made by kingofthestack",
 	"main": "lib/index.js",
 	"module": "es/index.js",
@@ -12,10 +12,10 @@
 		"gh:publish": "nwb build-demo && gh-pages -d demo/dist"
 	},
 	"dependencies": {
+		"@material-ui/core": "^3.9.2",
 		"emoji-js": "3.2.2",
 		"gh-pages": "^1.2.0",
 		"prop-types": "15.5.10",
-		"react-highlight.js": "1.0.5",
 		"react-linkify": "^0.2.1",
 		"socket.io-client": "2.0.3"
 	},
@@ -24,8 +24,8 @@
 	},
 	"devDependencies": {
 		"nwb": "^0.23.0",
-		"react": "15.6.1",
-		"react-dom": "15.6.1"
+		"react": "^16.3.0",
+		"react-dom": "^16.8.4"
 	},
 	"repository": {
 		"type": "git",
