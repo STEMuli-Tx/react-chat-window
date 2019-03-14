@@ -42,7 +42,8 @@ class Launcher extends Component {
 		}
 	}
 	componentDidMount() {
-		this.createGroupLabel();
+		const { isGroup } = this.props;
+		if (isGroup) this.createGroupLabel();
 	}
 	createGroupLabel = () => {
 		const { groupName } = this.props;
