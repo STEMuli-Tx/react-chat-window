@@ -32,7 +32,6 @@ function GroupMenuList(props) {
 	function handleClose() {
 		setAnchorEl(null);
 	}
-	console.log(props);
 	return (
 		<Menu
 			id="long-menu"
